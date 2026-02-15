@@ -3,7 +3,7 @@
 This repository provides a reliable, flicker-free method to cast your **Meta Quest 3** to a PC or TV using **scrcpy** and **OBS Studio**. 
 
 ### 🛑 The Problem
-Recent Quest 3 firmware updates (v70+) cause `scrcpy` to flicker or go black when using hardware-level cropping (`--crop`). This setup bypasses the bug by capturing the **full feed** stably and using **OBS** to handle the "beautification" (cropping and leveling).
+Quest 3 does not offer a direct way to cast localy or without internet and reformatting settings cause `scrcpy` to flicker or go black when using hardware-level cropping (`--crop`). This setup bypasses the bug by capturing the **full feed** stably and using **OBS** to handle the "beautification" (cropping and leveling).
 
 ---
 
@@ -62,6 +62,9 @@ echo Stream closed.
 pause
 ```
 ## 🎨 Phase 5: OBS "TV-Ready" Cleanup
+
+### Note: you can also use Shift + Drag to freeform to fit to your display
+
 Since we aren't cropping in scrcpy to avoid flickers, we do it in OBS:
 1. Add Source: Create a Window Capture source and select the Quest3Full window.
 2. Add Crop Filter: Right-click the source > Filters > + > Crop/Pad.
@@ -69,7 +72,7 @@ Since we aren't cropping in scrcpy to avoid flickers, we do it in OBS:
   Top/Bottom: 225 (Centers the 16:9 widescreen view).
 3. Fix the Tilt: Right-click source > Transform > Edit Transform.
   Set Rotation to -22 (fixes the Quest 3 downward camera angle).
-4. Cast to TV: Right-click the OBS Preview > Fullscreen Projector > Select your TV monitor.
+4. Cast to TV: Right-click the OBS Preview > Fullscreen Projector > Select your TV monitor. (Win + K or any screen casting method)
 
 💡 Troubleshooting Tips
 - Flickering? Ensure you aren't using the --crop flag in your .bat file. Let OBS do the cropping!
